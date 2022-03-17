@@ -5,9 +5,9 @@ import "../styles/Indicators.css"
 const Indicators = ({ childrenCount, activeIndex, setActiveIndex }) => {
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
-            newIndex = 0
+            newIndex = childrenCount - 1
         } else if (newIndex >= childrenCount) {
-            newIndex = childrenCount - 1;
+            newIndex = 0;
         }
 
         setActiveIndex(newIndex);
