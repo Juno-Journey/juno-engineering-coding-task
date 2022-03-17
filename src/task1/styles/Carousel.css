@@ -1,0 +1,10 @@
+/* to display only the current image */
+.carousel {
+    overflow: hidden;
+}
+
+/* to display all images in one line & add animation */
+.inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+}
