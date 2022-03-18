@@ -7,9 +7,12 @@ import { CarouselItem } from "./components/CarouselItem";
 const ImageCarousel = (props) => {
     const [imageUrls, setImageUrls] = useState([]);
 
-    useEffect(async () => {
-        const urls = await fetchImageUrls()
-        setImageUrls(urls);
+    useEffect(() => {
+        const fetchData = async() => {
+            const urls = await fetchImageUrls()
+            setImageUrls(urls);
+        }
+        fetchData();
     }, [])
 
 
