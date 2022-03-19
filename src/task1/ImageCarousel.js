@@ -3,31 +3,32 @@ import { fetchImageUrls } from "../api/index";
 
 import Carousel from "./components/Carousel";
 import { CarouselItem } from "./components/CarouselItem";
+import { LoadingState } from "./components/LoadingState";
 
 const ImageCarousel = (props) => {
-    const [imageUrls, setImageUrls] = useState([]);
+    const [images, setImages] = useState([]);
+
+    const getImages = async () => {
+        const urls = await fetchImageUrls()
+        setImages(urls);
+    }
 
     useEffect(() => {
-        const fetchData = async() => {
-            const urls = await fetchImageUrls()
-            setImageUrls(urls);
-        }
-        fetchData();
+        getImages();
     }, [])
-
-
-    console.log(imageUrls[0]);
 
     return (
         <div className="ImageCarousel">
+            {images.length === 0
+            ?
+            <LoadingState />
+            :
             <Carousel>
-                {imageUrls.map((url) => (
+                {images.map((url) => (
                     <CarouselItem imgUrl={url}></CarouselItem>
                 ))}
-                {/* <CarouselItem img={imageUrls[0]}></CarouselItem>
-                <CarouselItem>Item 2</CarouselItem>
-                <CarouselItem>Item 3</CarouselItem> */}
             </Carousel>
+            }
         </div>
     );
 };

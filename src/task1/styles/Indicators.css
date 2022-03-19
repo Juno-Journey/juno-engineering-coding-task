@@ -4,5 +4,15 @@
 }
 
 .indicators > button {
+    width: 100px;
     margin: 5px;
+    border-radius: 12px;
+    border: 5px solid white;
+    background-color: burlywood;
+    color: white;
+}
+
+.indicators > button:hover {    
+    background-color: rgb(211, 154, 79);
+    color: white;
 }

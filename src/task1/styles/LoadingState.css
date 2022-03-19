@@ -1,0 +1,10 @@
+.loading-state {
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-state > h1 {
+    text-align: center;
+    margin-top: 250px;
+}
