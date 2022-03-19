@@ -1,8 +1,13 @@
 .carousel-item {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-    height: 500px;
-    color: #fff;
-    
+    align-items: center;
+    height: 90vh;
 }
+
+img {
+    height: 60vh;
+    width: 100vh;
+    border-radius: 20px;
+}
+

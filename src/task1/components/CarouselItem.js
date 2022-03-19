@@ -13,8 +13,6 @@ export const CarouselItem = ({ width, imgUrl }) => {
                 src={imgUrl} 
                 alt="imgUrl" 
                 key="{imgUrl}"
-                height="500px"
-                width="700px"
             />
         </div>
     );

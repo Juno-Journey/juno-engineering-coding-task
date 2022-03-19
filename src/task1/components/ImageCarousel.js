@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { fetchImageUrls } from "../api/index";
+import { fetchImageUrls } from "../../api/index";
 
-import Carousel from "./components/Carousel";
-import { CarouselItem } from "./components/CarouselItem";
-import { LoadingState } from "./components/LoadingState";
+import Carousel from "./Carousel";
+import { CarouselItem } from "./CarouselItem";
+import { LoadingState } from "./LoadingState";
+// import "../styles/ImageCarousel.css"
 
 const ImageCarousel = (props) => {
     const [images, setImages] = useState([]);
