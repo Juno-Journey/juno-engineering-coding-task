@@ -27,37 +27,21 @@ const ImageCarousel = (props) => {
   const [direction, setDirection] = useState('down');
   const [slideIn, setSlideIn] = useState(true);
 
+  const getImages = async () => {
+    try {
+      setLoading(true);
+      const fetchedImages = await fetchImages();
+
+      setImages(fetchedImages);
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      setError(e);
+    }
+  };
+  
   useEffect(() => {
-    const getImages = async () => {
-      try {
-        setLoading(true);
-        const fetchedImages = await fetchImages();
-
-        setImages(fetchedImages);
-        setLoading(false);
-      } catch (e) {
-        setLoading(false);
-        setError(e);
-      }
-    };
-
     getImages();
-
-    const handleKeyDown = (e) => {
-      if (e.which === 39) {
-        onMoveSlide("right");
-      }
-
-      if (e.which === 37) {
-        onMoveSlide("left");
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, []);
 
   const onMoveSlide = (direction) => {
